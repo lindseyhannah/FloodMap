@@ -29,15 +29,15 @@
 
 		map.on('load', function(){
 			map.addSource('100YrFlood', {
-				"type": "json",
+				"type": "geojson",
 				"data": "100Yr.json"
 			});
 			map.addSource('500YrFlood', {
-				"type": "json",
+				"type": "geojson",
 				"data": "500Yr.json"
 			});
 			map.addSource('SpecialWave', {
-				"type": "json",
+				"type": "geojson",
 				"data": "SpecialWave.json"
 			});
 			map.addLayer({
