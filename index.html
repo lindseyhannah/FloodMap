@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<!-- the mapbox libraries -->
+	
+	<meta charset='utf-8' />
+    <title>NYC Flood Map</title>
+    <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
+    <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.51.0/mapbox-gl.js'></script>
+    <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.51.0/mapbox-gl.css' rel='stylesheet' />
+    <link href='https://www.mapbox.com/base/latest/base.css' rel='stylesheet' />
+    <style>
+        body { margin:0; padding:0; }
+        #map { position:absolute; top:0; bottom:0; width:100%; }
+	<div id="map" style="width: 800px; height: 800px;" class="mapboxgl-map"></div> 
+	</style>
+
+</head>
+<body>
+	<div id='map'></div>
+	<script>
+	mapboxgl.accessToken = 'pk.eyJ1IjoibG1oYW5uYWgiLCJhIjoiY2pvNHYzNnZ4MDBuNjNxcHUwZzR3dmR5bSJ9.c2ULzGUVCYiPhkvdiqTRZw';
+		var map = new mapboxgl.Map({
+			container: 'map',
+			style: 'mapbox://styles/lmhannah/cjoj9wpdv9cr32rmnje5hm7mj',
+			zoom: 9.8,
+			center: [-73.913709, 40.701839]
+		});
+
+		map.on('load', function(){
+			map.addSource('100YrFlood', {
+				"type": "json",
+				"data": "100Yr.json"
+			});
+			map.addSource('500YrFlood', {
+				"type": "json",
+				"data": "500Yr.json"
+			});
+			map.addSource('SpecialWave', {
+				"type": "json",
+				"data": "SpecialWave.json"
+			});
+			map.addLayer({
+				"id":"100Yr",
+				"type": "fill",
+				"source": "100YrFlood",
+				"paint": {
+					"fill-color": "#FF0800",
+					"fill-opacity": 0.5
+					} 
+
+			});
+			map.addLayer({
+				"id":"500Yr",
+				"type": "fill",
+				"source": "500YrFlood",
+				"paint": {
+					"fill-color": "#666666",
+					"fill-opacity": 0.5
+					} 
+
+			});
+			map.addLayer({
+				"id":"Wave",
+				"type": "fill",
+				"source": "SpecialWave",
+				"paint": {
+					"fill-color": "#555555",
+					"fill-opacity": 0.5
+					} 
+
+			});
+			
+		})
+	</script>
+
+
+	<!--Map 2-->
+
+	
+ 
+</body>
+</html>
+
