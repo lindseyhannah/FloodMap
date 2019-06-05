@@ -88,7 +88,7 @@
 				"data": "waveconvert.json"
 			});
 			map.addLayer({
-				"id":"100Yr",
+				"id":"100 Year Flood",
 				"type": "fill",
 				"source": "100YrFlood",
 				"layout":{
@@ -101,7 +101,7 @@
 
 			});
 			map.addLayer({
-				"id":"500Yr",
+				"id":"500 Year Zone",
 				"type": "fill",
 				"source": "500YrFlood",
 				"layout":{
@@ -114,7 +114,7 @@
 
 			});
 			map.addLayer({
-				"id":"Wave",
+				"id":"Special Wave Zone",
 				"type": "fill",
 				"source": "SpecialWave",
 				"layout":{
@@ -128,7 +128,7 @@
 			});
 			
 		});
-var toggleableLayerIds = [ '100Yr', '500Yr' ];
+var toggleableLayerIds = [ '100 Year Flood', '500 Year Flood', 'Special Wave Zone' ];
  
 for (var i = 0; i < toggleableLayerIds.length; i++) {
 	var id = toggleableLayerIds[i];
