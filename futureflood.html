@@ -18,7 +18,6 @@
 </head>
 <body>
 <style>
-
 	#title {
 		background-color: #0d0d0d;
 		color: #ffffff;
@@ -78,9 +77,8 @@
 <nav id="menu"></nav>
 <div id='map'></div>
 <div id="title">
-	<h3> Present FEMA Flood Zones </h3>
+	<h3> 2050 Predicted FEMA Flood Zones </h3>
 </div>
-
 
 <script>
 
@@ -93,22 +91,22 @@
 		});
 
 		map.on('load', function(){
-			map.addSource('100YrFlood', {
+			map.addSource('Sandy', {
 				"type": "geojson",
-				"data": "100convert.json"
+				"data": "Sandy.json"
 			});
-			map.addSource('500YrFlood', {
+			map.addSource('500YrFlood2050', {
 				"type": "geojson",
-				"data": "500convert.json"
+				"data": "500yr2050.json"
 			});
-			map.addSource('SpecialWave', {
+			map.addSource('100YrFlood2050', {
 				"type": "geojson",
-				"data": "waveconvert.json"
+				"data": "100yr2050.json"
 			});
 			map.addLayer({
 				"id":"100 Year Flood",
 				"type": "fill",
-				"source": "100YrFlood",
+				"source": "100YrFlood2050",
 				"layout":{
 					'visibility': 'none'
 				},
@@ -121,7 +119,7 @@
 			map.addLayer({
 				"id":"500 Year Flood",
 				"type": "fill",
-				"source": "500YrFlood",
+				"source": "500YrFlood2050",
 				"layout":{
 					'visibility': 'none'
 				},
@@ -132,9 +130,9 @@
 
 			});
 			map.addLayer({
-				"id":"Special Wave Hazard Zone",
+				"id":"Sandy Innundation Zone",
 				"type": "fill",
-				"source": "SpecialWave",
+				"source": "Sandy",
 				"layout":{
 					'visibility': 'none'
 				},
@@ -146,7 +144,7 @@
 			});
 			
 		});
-var toggleableLayerIds = ['100 Year Flood', '500 Year Flood', 'Special Wave Hazard Zone'];
+var toggleableLayerIds = ['100 Year Flood', '500 Year Flood'];
  
 for (var i = 0; i < toggleableLayerIds.length; i++) {
 	var id = toggleableLayerIds[i];
@@ -187,4 +185,3 @@ map.addControl(new mapboxgl.NavigationControl());
  
 </body>
 </html>
-
